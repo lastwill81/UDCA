@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UDCA Training | DeSoto ISD — Office of Health Services</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D2B55;
+  --navy-mid: #1A3F73;
+  --gold: #C8922A;
+  --gold-light: #F5E6CC;
+  --teal: #0F6E56;
+  --teal-light: #E1F5EE;
+  --red: #A32D2D;
+  --red-light: #FCEBEB;
+  --green: #3B6D11;
+  --green-light: #EAF3DE;
+  --amber: #BA7517;
+  --amber-light: #FAEEDA;
+  --gray-50: #F8F7F5;
+  --gray-100: #EEECE8;
+  --gray-300: #C5C3BC;
+  --gray-500: #7A7872;
+  --gray-700: #3E3D39;
+  --white: #FFFFFF;
+  --text: #1A1917;
+  --text-muted: #5F5E5A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--gray-50);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ─── HEADER ─────────────────────────────────────── */
+.site-header {
+  background: var(--navy);
+  color: white;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 64px;
+}
+.header-badge {
+  background: var(--gold);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.header-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  flex: 1;
+}
+.header-title span { color: var(--gold); }
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+.progress-bar-outer {
+  width: 140px;
+  height: 6px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-bar-inner {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+/* ─── HERO ───────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.hero h1 em { color: var(--gold); font-style: italic; }
+.hero p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.8);
+  max-width: 620px;
+  margin: 0 auto 2rem;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.hero-meta-item .num {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--gold);
+}
+.hero-meta-item .lbl {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.btn-start {
+  background: var(--gold);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-start:hover { background: #a87520; transform: translateY(-1px); }
+
+/* ─── LAYOUT ─────────────────────────────────────── */
+.app-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .app-layout { grid-template-columns: 1fr; }
+}
+
+/* ─── SIDEBAR NAV ────────────────────────────────── */
+.sidebar {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--gray-100);
+  overflow: hidden;
+  position: sticky;
+  top: 80px;
+}
+.sidebar-title {
+  background: var(--navy);
+  color: white;
+  padding: 1rem 1.25rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.module-nav {
+  list-style: none;
+}
+.module-nav li {
+  border-bottom: 0.5px solid var(--gray-100);
+}
+.module-nav li:last-child { border-bottom: none; }
+.module-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  transition: background 0.15s;
+}
+.module-btn:hover { background: var(--gray-50); }
+.module-btn.active { background: var(--navy); color: white; }
+.module-btn.completed { color: var(--green); }
+.module-btn.completed .mod-icon { background: var(--green-light); color: var(--green); }
+.mod-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  color: var(--gray-500);
+}
+.module-btn.active .mod-icon { background: rgba(255,255,255,0.2); color: white; }
+
+/* ─── MAIN CONTENT ───────────────────────────────── */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.module-panel {
+  display: none;
+}
+.module-panel.active {
+  display: block;
+}
+
+/* ─── CARD ───────────────────────────────────────── */
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--gray-100);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+.module-number {
+  background: var(--navy);
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.card-header-text h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.card-header-text p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ─── CONTENT SECTIONS ───────────────────────────── */
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 1.5rem 0 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+p.body-text { font-size: 15px; line-height: 1.75; color: var(--text); margin-bottom: 0.75rem; }
+
+.info-box {
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.info-box.blue { background: #E6F1FB; border-left: 3px solid #185FA5; color: #0C447C; }
+.info-box.amber { background: var(--amber-light); border-left: 3px solid var(--amber); color: #633806; }
+.info-box.red { background: var(--red-light); border-left: 3px solid var(--red); color: var(--red); }
+.info-box.green { background: var(--green-light); border-left: 3px solid var(--green); color: var(--green); }
+.info-box.teal { background: var(--teal-light); border-left: 3px solid var(--teal); color: var(--teal); }
+.info-box strong { display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+@media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+.symptom-card {
+  border-radius: 8px;
+  padding: 1rem;
+}
+.symptom-card.hypo { background: var(--amber-light); border: 1px solid #FAC775; }
+.symptom-card.hyper { background: var(--red-light); border: 1px solid #F7C1C1; }
+.symptom-card h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+.symptom-card.hypo h4 { color: #633806; }
+.symptom-card.hyper h4 { color: var(--red); }
+.symptom-card ul { list-style: none; }
+.symptom-card ul li { font-size: 13.5px; padding: 3px 0; display: flex; align-items: center; gap: 6px; }
+.symptom-card ul li::before { content: '▸'; font-size: 10px; }
+.symptom-card.hypo ul li::before { color: var(--amber); }
+.symptom-card.hyper ul li::before { color: var(--red); }
+
+.law-item {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.law-item .code-ref {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 4px;
+}
+.law-item p { font-size: 14px; color: var(--text); }
+
+.step-list { list-style: none; counter-reset: steps; }
+.step-list li {
+  counter-increment: steps;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 0.75rem;
+  font-size: 14.5px;
+  align-items: flex-start;
+}
+.step-list li::before {
+  content: counter(steps);
+  background: var(--navy);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.check-list { list-style: none; }
+.check-list li {
+  padding: 6px 0;
+  font-size: 14.5px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border-bottom: 0.5px solid var(--gray-100);
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li::before { content: '✓'; color: var(--green); font-weight: 700; margin-top: 1px; }
+
+/* ─── QUIZ ───────────────────────────────────────── */
+.quiz-section {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 2rem;
+  color: white;
+  margin-top: 1.5rem;
+}
+.quiz-section h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+.quiz-section .quiz-sub { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
+
+.quiz-q {
+  background: rgba(255,255,255,0.07);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.quiz-q .q-text {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.quiz-q .q-num {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 6px;
+}
+
+.options { list-style: none; }
+.options li { margin-bottom: 6px; }
+.option-btn {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.9);
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  transition: background 0.15s, border 0.15s;
+}
+.option-btn:hover:not(:disabled) { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.3); }
+.option-btn.correct { background: rgba(59,109,17,0.4); border-color: #97C459; color: #C0DD97; }
+.option-btn.wrong { background: rgba(163,45,45,0.4); border-color: #F09595; color: #F7C1C1; }
+.option-btn:disabled { cursor: default; }
+
+.q-feedback {
+  font-size: 13px;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: none;
+  line-height: 1.5;
+}
+.q-feedback.show { display: block; }
+.q-feedback.right { background: rgba(59,109,17,0.3); color: #C0DD97; }
+.q-feedback.wrong-fb { background: rgba(163,45,45,0.3); color: #F7C1C1; }
+
+.quiz-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.quiz-score {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+}
+.quiz-score strong { color: white; }
+
+.btn-submit, .btn-next-module {
+  background: var(--gold);
+  color: white;
+  border: none;
+  padding: 11px 28px;
+  border-radius: 7px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-submit:hover, .btn-next-module:hover { background: #a87520; }
+.btn-submit:disabled { background: rgba(255,255,255,0.2); cursor: default; }
+
+.pass-banner {
+  background: rgba(59,109,17,0.3);
+  border: 1px solid #97C459;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  color: #C0DD97;
+  font-size: 14px;
+  display: none;
+}
+.pass-banner.show { display: block; }
+.pass-banner strong { display: block; font-size: 16px; margin-bottom: 4px; }
+
+/* ─── GLOSSARY ───────────────────────────────────── */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.glossary-item {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+}
+.glossary-item .term { font-weight: 600; font-size: 13px; color: var(--navy); margin-bottom: 4px; }
+.glossary-item .def { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+/* ─── RESOURCES ──────────────────────────────────── */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.resource-card {
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.resource-card .r-tag {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.resource-card h4 { font-size: 14px; color: var(--navy); margin-bottom: 4px; }
+.resource-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+
+/* ─── CERTIFICATE ────────────────────────────────── */
+.cert-wrap {
+  text-align: center;
+  padding: 2rem;
+}
+.cert-box {
+  background: white;
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.cert-box .seal {
+  width: 80px;
+  height: 80px;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 32px;
+}
+.cert-box h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.cert-box .subtitle { color: var(--gold); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; }
+.cert-box .authority { font-size: 13px; color: var(--text-muted); margin-top: 1.5rem; border-top: 1px solid var(--gray-100); padding-top: 1rem; }
+.btn-print {
+  background: var(--navy);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+.btn-print:hover { background: var(--navy-mid); }
+
+/* ─── INSULIN CALC TOOL ──────────────────────────── */
+.calc-tool {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+.calc-tool h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 1rem; }
+.calc-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; align-items: flex-end; }
+.calc-field { display: flex; flex-direction: column; gap: 4px; min-width: 140px; flex: 1; }
+.calc-field label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.calc-field input, .calc-field select {
+  padding: 8px 10px;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  background: white;
+}
+.calc-result {
+  background: var(--navy);
+  color: white;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  display: none;
+}
+.calc-result.show { display: block; }
+.calc-result .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; }
+.calc-result .r-label { font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+.calc-result .r-val { font-size: 22px; font-weight: 600; color: var(--gold); }
+.btn-calc {
+  background: var(--teal);
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-calc:hover { background: var(--navy); }
+
+/* ─── TABLE ──────────────────────────────────────── */
+.data-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 14px; }
+.data-table th {
+  background: var(--navy);
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 13px;
+}
+.data-table th:first-child { border-radius: 6px 0 0 0; }
+.data-table th:last-child { border-radius: 0 6px 0 0; }
+.data-table td { padding: 9px 14px; border-bottom: 0.5px solid var(--gray-100); }
+.data-table tr:nth-child(even) td { background: var(--gray-50); }
+
+@media print {
+  .site-header, .sidebar, .quiz-section { display: none; }
+  .cert-box { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div id="logoWrap" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+      <div style="display:flex;flex-direction:column;line-height:1.2;">
+        <span style="font-size:13px;font-weight:600;color:white;">DeSoto ISD</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.6);">Office of Health Services</span>
+      </div>
+    </div>
+    <div style="width:1px;height:32px;background:rgba(255,255,255,0.2);flex-shrink:0;"></div>
+    <div class="header-title">UDCA Training — <span>School Diabetes Care</span></div>
+    <div class="progress-wrap">
+      <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div>
+      <span id="progressText">0%</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="heroSection">
+  <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;">DeSoto ISD — Office of Health Services</div>
+  <h1>Unlicensed Diabetes Care<br><em>Assistant Training</em></h1>
+  <p>A comprehensive training course for DeSoto ISD personnel, aligned with Texas Health and Safety Code Chapter 168 and Texas Diabetes Council guidelines.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="num">7</span><span class="lbl">Modules</span></div>
+    <div class="hero-meta-item"><span class="num">45+</span><span class="lbl">Questions</span></div>
+    <div class="hero-meta-item"><span class="num">Jan 2025</span><span class="lbl">TDC Updated</span></div>
+    <div class="hero-meta-item"><span class="num">168.005</span><span class="lbl">HSC Compliance</span></div>
+  </div>
+  <button class="btn-start" onclick="startCourse()">Begin Training →</button>
+</div>
+
+<!-- COURSE LAYOUT -->
+<div class="app-layout" id="courseLayout" style="display:none;">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-title">Course Modules</div>
+    <ul class="module-nav" id="moduleNav">
+      <li><button class="module-btn active" onclick="showModule(0)" id="nav0"><span class="mod-icon">1</span>Texas Law & UDCA Role</button></li>
+      <li><button class="module-btn" onclick="showModule(1)" id="nav1"><span class="mod-icon">2</span>Diabetes Basics</button></li>
+      <li><button class="module-btn" onclick="showModule(2)" id="nav2"><span class="mod-icon">3</span>Hypo & Hyperglycemia</button></li>
+      <li><button class="module-btn" onclick="showModule(3)" id="nav3"><span class="mod-icon">4</span>Monitoring & Technology</button></li>
+      <li><button class="module-btn" onclick="showModule(4)" id="nav4"><span class="mod-icon">5</span>Insulin & Glucagon</button></li>
+      <li><button class="module-btn" onclick="showModule(5)" id="nav5"><span class="mod-icon">6</span>Legal, Nutrition & Activities</button></li>
+      <li><button class="module-btn" onclick="showModule(6)" id="nav6"><span class="mod-icon">✦</span>Final Exam</button></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main-content">
+
+    <!-- MODULE 1: Texas Law -->
+    <div class="module-panel active" id="module0">
+      <div class="card">
+        <div class="card-header">
+          <div class="module-number">1</div>
+          <div class="card-header-text">
+            <h2>Texas Law &amp; the UDCA Role</h2>
+            <p>Legal framework under Texas Health and Safety Code Chapter 168</p>
+          </div>
+        </div>
+
+        <div class="info-box blue"><strong>Legal Authority</strong>This course is required under Texas Health and Safety Code §168.005, which directs the Texas Diabetes Council to develop training guidelines for Unlicensed Diabetes Care Assistants (UDCAs).</div>
+
+        <div class="section-title">What is a UDCA?</div>
+        <p class="body-text">An Unlicensed Diabetes Care Assistant (UDCA) is a non-medical school staff member trained to assist students with diabetes. UDCAs are not nurses — they work under the supervision of the school principal and follow care plans written by licensed healthcare professionals.</p>
+
+        <div class="section-title">Who Requires UDCAs?</div>
+        <div class="law-item">
+          <div class="code-ref">HSC § 168.004 — Principal's Duty</div>
+          <p>School principals must seek and make efforts to designate staff as UDCAs when students with diabetes are enrolled in their school.</p>
+        </div>
+        <div class="law-item">
+          <div class="code-ref">How many UDCAs?</div>
+          <p><strong>Schools without a full-time nurse:</strong> At least <strong>3</strong> trained UDCAs required.<br><strong>Schools with a full-time nurse:</strong> At least <strong>1</strong> trained UDCA required.</p>
+        </div>
+        <div class="law-item">
+          <div class="code-ref">HSC § 168.004(b) — Supervision</div>
+          <p>UDCAs must be supervised by the school principal.</p>
+        </div>
+
+        <div class="section-title">Who Trains UDCAs?</div>
+        <p class="body-text">The school nurse assigned to the campus is responsible for training UDCAs. If no school nurse is assigned, a healthcare professional with expertise in diabetes care must provide training.</p>
+
+        <div class="section-title">When Must Training Occur?</div>
+        <p class="body-text">Per HSC §168.005(c), training must occur:</p>
+        <ul class="step-list">
+          <li>Before the beginning of the school year</li>
+          <li>As soon as possible after a student with diabetes enrolls at a campus that previously had none</li>
+          <li>As soon as possible after a student at a campus receives a new diabetes diagnosis</li>
+        </ul>
+
+        <div class="section-title">Key Documents Every UDCA Must Know</div>
+        <table class="data-table">
+          <thead><tr><th>Document</th><th>Created By</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><strong>DMTP</strong> — Diabetes Management &amp; Treatment Plan</td><td>Student's physician</td><td>Physician orders to follow at school</td></tr>
+            <tr><td><strong>DMMP</strong> — Diabetes Medical Management Plan</td><td>Student's diabetes care team + parents</td><td>Describes complete diabetes care plan</td></tr>
+            <tr><td><strong>IHP</strong> — Individual Health Plan</td><td>School nurse + principal</td><td>Campus-specific implementation of DMMP</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-box amber"><strong>Record Keeping Required</strong>The school nurse or principal must maintain a copy of training guidelines and all records associated with training, per HSC §168.005(e).</div>
+
+        <div class="section-title">Student Rights Under Chapter 168</div>
+        <p class="body-text">Per HSC §168.008, students must be permitted to manage their own diabetes care anywhere on campus, including:</p>
+        <ul class="check-list">
+          <li>Checking and monitoring blood glucose levels</li>
+          <li>Administering diabetes medication per their DMTP</li>
+          <li>Managing low and high blood sugar as quickly as possible</li>
+          <li>Carrying necessary diabetes supplies and equipment (including a smartphone)</li>
+          <li>Performing self-care in the classroom or any location at school</li>
+        </ul>
+
+        <div class="info-box red"><strong>Important</strong>Schools cannot require a student with diabetes to go to the nurse's office to check blood glucose, have a snack, or administer insulin — unless specified in the student's IHP with parental agreement.</div>
+      </div>
+
+      <!-- QUIZ 1 -->
+      <div class="quiz-section" id="quiz0">
+        <h3>Module 1 Knowledge Check</h3>
+        <div class="quiz-sub">Select the best answer for each question. You must score 80% or higher to proceed.</div>
+
+        <div class="quiz-q" id="q0_0">
+          <div class="q-num">Question 1 of 5</div>
+          <div class="q-text">Under Texas law, a school WITHOUT a full-time nurse must train a minimum of how many UDCAs?</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(0,0,'a')">a) 1</button></li>
+            <li><button class="option-btn" onclick="answer(0,0,'b')">b) 2</button></li>
+            <li><button class="option-btn" onclick="answer(0,0,'c')">c) 3</button></li>
+            <li><button class="option-btn" onclick="answer(0,0,'d')">d) 5</button></li>
+          </ul>
+          <div class="q-feedback" id="fb0_0"></div>
+        </div>
+
+        <div class="quiz-q" id="q0_1">
+          <div class="q-num">Question 2 of 5</div>
+          <div class="q-text">Who is ultimately responsible for supervising UDCAs?</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(0,1,'a')">a) The school nurse</button></li>
+            <li><button class="option-btn" onclick="answer(0,1,'b')">b) The school principal</button></li>
+            <li><button class="option-btn" onclick="answer(0,1,'c')">c) The student's physician</button></li>
+            <li><button class="option-btn" onclick="answer(0,1,'d')">d) The district superintendent</button></li>
+          </ul>
+          <div class="q-feedback" id="fb0_1"></div>
+        </div>
+
+        <div class="quiz-q" id="q0_2">
+          <div class="q-num">Question 3 of 5</div>
+          <div class="q-text">The Individual Health Plan (IHP) is created by:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(0,2,'a')">a) The student's parents only</button></li>
+            <li><button class="option-btn" onclick="answer(0,2,'b')">b) The student's physician</button></li>
+            <li><button class="option-btn" onclick="answer(0,2,'c')">c) The school nurse and/or principal, based on the DMMP</button></li>
+            <li><button class="option-btn" onclick="answer(0,2,'d')">d) The school district legal team</button></li>
+          </ul>
+          <div class="q-feedback" id="fb0_2"></div>
+        </div>
+
+        <div class="quiz-q" id="q0_3">
+          <div class="q-num">Question 4 of 5</div>
+          <div class="q-text">Texas law REQUIRES parents to come to school to care for their child with diabetes.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(0,3,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(0,3,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb0_3"></div>
+        </div>
+
+        <div class="quiz-q" id="q0_4">
+          <div class="q-num">Question 5 of 5</div>
+          <div class="q-text">A student with diabetes may be required to go to the nurse's office to check blood glucose ONLY if:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(0,4,'a')">a) It is always required by state law</button></li>
+            <li><button class="option-btn" onclick="answer(0,4,'b')">b) Their IHP specifies it and parents have agreed</button></li>
+            <li><button class="option-btn" onclick="answer(0,4,'c')">c) The principal requests it</button></li>
+            <li><button class="option-btn" onclick="answer(0,4,'d')">d) The student is in elementary school</button></li>
+          </ul>
+          <div class="q-feedback" id="fb0_4"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <div class="quiz-score">Score: <strong id="score0">—</strong></div>
+          <button class="btn-submit" id="submit0" onclick="submitQuiz(0)" disabled>Submit Answers</button>
+        </div>
+        <div class="pass-banner" id="pass0">
+          <strong>✓ Module 1 Complete!</strong>
+          You passed this module. Continue to Module 2.
+          <br><br><button class="btn-next-module" onclick="showModule(1)">Next Module →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 2: Diabetes Basics -->
+    <div class="module-panel" id="module1">
+      <div class="card">
+        <div class="card-header">
+          <div class="module-number">2</div>
+          <div class="card-header-text">
+            <h2>Diabetes Basics</h2>
+            <p>Understanding the disease, its types, and how it is managed</p>
+          </div>
+        </div>
+
+        <div class="section-title">What Is Diabetes?</div>
+        <p class="body-text">Diabetes is a chronic endocrine disorder involving insulin — either the pancreas no longer produces it, or the body cannot use it properly. Without insulin, glucose (sugar) remains in the bloodstream rather than entering cells for energy, leading to elevated blood glucose levels that can damage major organs and blood vessels over time.</p>
+
+        <div class="section-title">The Three Main Types</div>
+        <table class="data-table">
+          <thead><tr><th>Type</th><th>Mechanism</th><th>Insulin Required?</th><th>School-Age Prevalence</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Type 1</strong></td><td>Pancreas stops making insulin entirely</td><td>Always — lifelong</td><td>Most common in school-age children</td></tr>
+            <tr><td><strong>Type 2</strong></td><td>Pancreas makes insufficient insulin or body resists it</td><td>Sometimes (or oral meds / diet)</td><td>Increasing in adolescents</td></tr>
+            <tr><td><strong>Gestational</strong></td><td>Diagnosed during pregnancy only</td><td>Sometimes</td><td>Not applicable in K-12</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-box amber"><strong>You CANNOT tell by looking</strong>It is not possible to look at a student and determine they have diabetes. The condition is diagnosed only by a blood test. Never make assumptions about a student's health status from their appearance.</div>
+
+        <div class="section-title">The Role of the Pancreas</div>
+        <p class="body-text">The pancreas produces insulin, which acts as a "key" that allows glucose to enter the body's cells. Without this key, cells starve for energy while glucose accumulates dangerously in the blood. For students with Type 1, this process has stopped completely — insulin must come from external sources every day.</p>
+
+        <div class="section-title">Goals of Diabetes Management</div>
+        <ul class="check-list">
+          <li>Maintain blood glucose within the target range specified in the student's IHP</li>
+          <li>Prevent complications from persistently out-of-range blood glucose</li>
+          <li>Allow full participation in academic programs and extracurricular activities</li>
+          <li>Follow prescribed meal plans, physical activity schedules, and medication</li>
+          <li>See a healthcare provider routinely</li>
+        </ul>
+
+        <div class="info-box green"><strong>Key Point</strong>Students with diabetes are NOT limited from extracurricular activities — sports, band, debate, plays, orchestra. Section 504 of the Rehabilitation Act and the ADA prohibit discrimination against students with disabilities, including diabetes.</div>
+
+        <div class="section-title">Blood Glucose Monitoring Frequency</div>
+        <p class="body-text">There is no single universal schedule. A student's IHP will specify how often and when to check blood glucose while at school (e.g., before lunch, after physical activity). The UDCA follows those orders exactly — not a general rule of thumb.</p>
+      </div>
+
+      <div class="quiz-section" id="quiz1">
+        <h3>Module 2 Knowledge Check</h3>
+        <div class="quiz-sub">5 questions. Select the best answer for each.</div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 1 of 5</div>
+          <div class="q-text">A student with Type 1 diabetes MUST take insulin.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(1,0,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(1,0,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb1_0"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 2 of 5</div>
+          <div class="q-text">You can identify a student with diabetes by looking at them.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(1,1,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(1,1,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb1_1"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 3 of 5</div>
+          <div class="q-text">The three main types of diabetes are:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(1,2,'a')">a) Type 1, Type 2, and metabolic syndrome</button></li>
+            <li><button class="option-btn" onclick="answer(1,2,'b')">b) Type 1, Type 2, and gestational diabetes</button></li>
+            <li><button class="option-btn" onclick="answer(1,2,'c')">c) Type 1, Type A, and Type 2</button></li>
+            <li><button class="option-btn" onclick="answer(1,2,'d')">d) Juvenile, adult-onset, and pregnancy</button></li>
+          </ul>
+          <div class="q-feedback" id="fb1_2"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 4 of 5</div>
+          <div class="q-text">Students with diabetes cannot eat foods that contain sugar.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(1,3,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(1,3,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb1_3"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 5 of 5</div>
+          <div class="q-text">How often should a student without a CGM check blood glucose at school?</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(1,4,'a')">a) Three times a day</button></li>
+            <li><button class="option-btn" onclick="answer(1,4,'b')">b) Five times a day</button></li>
+            <li><button class="option-btn" onclick="answer(1,4,'c')">c) As outlined in their DMTP/IHP</button></li>
+            <li><button class="option-btn" onclick="answer(1,4,'d')">d) Only when symptoms appear</button></li>
+          </ul>
+          <div class="q-feedback" id="fb1_4"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <div class="quiz-score">Score: <strong id="score1">—</strong></div>
+          <button class="btn-submit" id="submit1" onclick="submitQuiz(1)" disabled>Submit Answers</button>
+        </div>
+        <div class="pass-banner" id="pass1">
+          <strong>✓ Module 2 Complete!</strong>
+          Continue to Module 3.
+          <br><br><button class="btn-next-module" onclick="showModule(2)">Next Module →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 3: Hypo/Hyperglycemia -->
+    <div class="module-panel" id="module2">
+      <div class="card">
+        <div class="card-header">
+          <div class="module-number">3</div>
+          <div class="card-header-text">
+            <h2>Hypoglycemia &amp; Hyperglycemia</h2>
+            <p>Recognizing and responding to blood sugar emergencies</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="symptom-card hypo">
+            <h4>Hypoglycemia (Low Blood Sugar)</h4>
+            <ul>
+              <li>Hunger</li>
+              <li>Dizziness</li>
+              <li>Excessive sweating</li>
+              <li>Trembling / shakiness</li>
+              <li>Inability to concentrate</li>
+              <li>Confusion</li>
+              <li>Headache</li>
+              <li>Slurred speech</li>
+              <li>Seizure (severe)</li>
+              <li>Loss of consciousness (severe)</li>
+            </ul>
+          </div>
+          <div class="symptom-card hyper">
+            <h4>Hyperglycemia (High Blood Sugar)</h4>
+            <ul>
+              <li>Excessive thirst</li>
+              <li>Frequent urination</li>
+              <li>Drowsiness</li>
+              <li>Irritability</li>
+              <li>Blurred vision</li>
+              <li>Ketones in urine</li>
+              <li>Nausea</li>
+              <li>Fruity breath odor</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-box amber"><strong>Critical Rule</strong>Physical symptoms ALONE cannot confirm hypoglycemia or hyperglycemia. The ONLY definitive way to determine blood glucose status is to measure it with a glucose meter or CGM. Always check before treating, unless the student is unconscious.</div>
+
+        <div class="section-title">Treating Mild to Moderate Hypoglycemia</div>
+        <ul class="step-list">
+          <li>Check the student's blood glucose with a meter to confirm low reading</li>
+          <li>Follow the student's IHP for the specific treatment order</li>
+          <li>Administer fast-acting glucose (glucose tablets, juice, regular soda) as ordered</li>
+          <li>Wait 15 minutes, then recheck blood glucose</li>
+          <li>If still low, repeat treatment per IHP</li>
+          <li>Document the episode, time, reading, treatment, and outcome</li>
+        </ul>
+
+        <div class="section-title">Treating Severe Hypoglycemia</div>
+        <div class="info-box red"><strong>Emergency Protocol — Severe Hypoglycemia</strong>
+        If a student collapses or has a seizure:<br>
+        1. Do NOT give anything by mouth if unconscious<br>
+        2. Administer glucagon per the student's IHP<br>
+        3. Call 911 immediately after administering glucagon<br>
+        4. Call the parent/guardian<br>
+        5. Place the student on their side<br>
+        6. Stay with the student until EMS arrives</div>
+
+        <div class="section-title">Treating Hyperglycemia</div>
+        <ul class="step-list">
+          <li>Check blood glucose to confirm elevated reading</li>
+          <li>Check urine or blood ketones if ordered in the IHP</li>
+          <li>Follow the student's IHP — this may include administering a correction dose of insulin</li>
+          <li>Encourage the student to drink water</li>
+          <li>Document all readings, treatments, and observations</li>
+          <li>Contact parent/guardian if readings remain out of range</li>
+        </ul>
+
+        <div class="section-title">Physical Activity and Blood Sugar</div>
+        <p class="body-text">Exercise can lower blood glucose levels and increase insulin sensitivity. Before any physical activity, a student with diabetes should:</p>
+        <ul class="check-list">
+          <li>Monitor blood glucose before, during, and after scheduled physical activity</li>
+          <li>Adjust insulin doses according to the IHP if applicable</li>
+          <li>Have fast-acting glucose available to treat potential hypoglycemia</li>
+          <li>Have snacks available for moderate hypoglycemia episodes</li>
+        </ul>
+        <div class="info-box teal"><strong>Physical Activity Tip</strong>The most common complication during physical activity in students with diabetes is hypoglycemia. Always ensure the student has glucose sources available during exercise and recess.</div>
+      </div>
+
+      <div class="quiz-section" id="quiz2">
+        <h3>Module 3 Knowledge Check</h3>
+        <div class="quiz-sub">6 questions on recognizing and responding to blood sugar emergencies.</div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 1 of 6</div>
+          <div class="q-text">Which of the following are symptoms of mild to moderate hypoglycemia? (Best answer)</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(2,0,'a')">a) Thirst, frequent urination, blurred vision</button></li>
+            <li><button class="option-btn" onclick="answer(2,0,'b')">b) Hunger, dizziness, sweating, trembling, confusion, headache</button></li>
+            <li><button class="option-btn" onclick="answer(2,0,'c')">c) Drowsiness, irritability, ketones in urine</button></li>
+            <li><button class="option-btn" onclick="answer(2,0,'d')">d) Seizure and loss of consciousness only</button></li>
+          </ul>
+          <div class="q-feedback" id="fb2_0"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 2 of 6</div>
+          <div class="q-text">The only definitive way to confirm hypoglycemia is:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(2,1,'a')">a) Observing the student's appearance</button></li>
+            <li><button class="option-btn" onclick="answer(2,1,'b')">b) Checking the student's blood glucose value</button></li>
+            <li><button class="option-btn" onclick="answer(2,1,'c')">c) Calling the parent</button></li>
+            <li><button class="option-btn" onclick="answer(2,1,'d')">d) Asking the student how they feel</button></li>
+          </ul>
+          <div class="q-feedback" id="fb2_1"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 3 of 6</div>
+          <div class="q-text">A student collapses and you suspect severe hypoglycemia. They are unconscious. You should:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(2,2,'a')">a) Give them orange juice to drink</button></li>
+            <li><button class="option-btn" onclick="answer(2,2,'b')">b) Administer glucagon and call 911</button></li>
+            <li><button class="option-btn" onclick="answer(2,2,'c')">c) Wait for them to regain consciousness before acting</button></li>
+            <li><button class="option-btn" onclick="answer(2,2,'d')">d) Administer insulin</button></li>
+          </ul>
+          <div class="q-feedback" id="fb2_2"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 4 of 6</div>
+          <div class="q-text">After administering glucagon to an unconscious student, what do you do FIRST?</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(2,3,'a')">a) Call the parent/guardian</button></li>
+            <li><button class="option-btn" onclick="answer(2,3,'b')">b) Call 911</button></li>
+            <li><button class="option-btn" onclick="answer(2,3,'c')">c) Wait to see if the student recovers</button></li>
+            <li><button class="option-btn" onclick="answer(2,3,'d')">d) Give the student food</button></li>
+          </ul>
+          <div class="q-feedback" id="fb2_3"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 5 of 6</div>
+          <div class="q-text">Treatment for hyperglycemia may include:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(2,4,'a')">a) Administering fast-acting glucose</button></li>
+            <li><button class="option-btn" onclick="answer(2,4,'b')">b) Administering insulin and following the IHP</button></li>
+            <li><button class="option-btn" onclick="answer(2,4,'c')">c) Withholding all food and drink</button></li>
+            <li><button class="option-btn" onclick="answer(2,4,'d')">d) Sending the student home immediately</button></li>
+          </ul>
+          <div class="q-feedback" id="fb2_4"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 6 of 6</div>
+          <div class="q-text">The most common complication during physical activity for a student with diabetes is:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(2,5,'a')">a) Hyperglycemia</button></li>
+            <li><button class="option-btn" onclick="answer(2,5,'b')">b) Hypoglycemia</button></li>
+            <li><button class="option-btn" onclick="answer(2,5,'c')">c) Ketoacidosis</button></li>
+            <li><button class="option-btn" onclick="answer(2,5,'d')">d) Fainting from heat</button></li>
+          </ul>
+          <div class="q-feedback" id="fb2_5"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <div class="quiz-score">Score: <strong id="score2">—</strong></div>
+          <button class="btn-submit" id="submit2" onclick="submitQuiz(2)" disabled>Submit Answers</button>
+        </div>
+        <div class="pass-banner" id="pass2">
+          <strong>✓ Module 3 Complete!</strong>
+          Continue to Module 4.
+          <br><br><button class="btn-next-module" onclick="showModule(3)">Next Module →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 4: Monitoring -->
+    <div class="module-panel" id="module3">
+      <div class="card">
+        <div class="card-header">
+          <div class="module-number">4</div>
+          <div class="card-header-text">
+            <h2>Monitoring &amp; Technology</h2>
+            <p>Blood glucose meters, CGMs, ketone testing, and documentation</p>
+          </div>
+        </div>
+
+        <div class="section-title">Blood Glucose Monitoring — Fingerstick Method</div>
+        <ul class="step-list">
+          <li>Wash hands with soap and water (or use antiseptic wipe)</li>
+          <li>Put on latex-free gloves</li>
+          <li>Insert test strip into the blood glucose meter</li>
+          <li>Use the lancet device to prick the side of the fingertip</li>
+          <li>Apply a small drop of blood to the test strip</li>
+          <li>Read and record the result, time, and any student observations</li>
+          <li>Dispose of lancet in the sharps container immediately</li>
+          <li>Compare reading to the IHP target range and follow orders</li>
+        </ul>
+
+        <div class="section-title">Continuous Glucose Monitor (CGM)</div>
+        <p class="body-text">A CGM uses a sensor inserted under the skin that measures interstitial blood glucose levels at regular intervals throughout the day. CGMs transmit readings to a receiver or smartphone without requiring a fingerstick for every reading.</p>
+        <div class="info-box blue">
+          <strong>UDCA CGM Responsibilities</strong>
+          Know how to read the CGM display and alarms. Know the backup plan if the CGM malfunctions. Know when calibration of equipment is needed. Always follow IHP orders for what actions to take based on CGM readings.
+        </div>
+
+        <div class="section-title">Ketone Testing</div>
+        <p class="body-text">Ketones are chemicals the liver produces when breaking down fats — this occurs when cells can't get glucose due to insufficient insulin. High ketones signal possible diabetic ketoacidosis (DKA), a medical emergency. Ketone testing is typically ordered when blood glucose is elevated (often above 250 mg/dL).</p>
+        <table class="data-table">
+          <thead><tr><th>Method</th><th>Sample</th><th>When Used</th></tr></thead>
+          <tbody>
+            <tr><td>Urine ketone strips</td><td>Urine sample</td><td>Most common in schools</td></tr>
+            <tr><td>Blood ketone meter</td><td>Fingerstick blood</td><td>More accurate, increasingly common</td></tr>
+          </tbody>
+        </table>
+        <p class="body-text">Record ketone results and follow IHP orders. Elevated ketones typically require contacting the parent/guardian and possibly EMS.</p>
+
+        <div class="section-title">Documentation — What Must Always Be Recorded</div>
+        <ul class="check-list">
+          <li>Date and time of the blood glucose check</li>
+          <li>Blood glucose reading</li>
+          <li>Ketone result (if tested)</li>
+          <li>Any insulin administered (dose, route, site, time)</li>
+          <li>Glucagon administered (dose, site, time)</li>
+          <li>Student symptoms and observations</li>
+          <li>Actions taken (snack given, parent called, 911 called)</li>
+          <li>Student's response to treatment</li>
+        </ul>
+
+        <div class="section-title">Sharps Disposal</div>
+        <p class="body-text">All sharps (lancets, syringes, pen needles, infusion sets) must be disposed of in a hard plastic sharps container. The container is sealed and labeled before disposal. Follow your school district's policy for sharps disposal — this supersedes individual student preferences.</p>
+        <div class="info-box red"><strong>Never</strong>Place uncapped needles or lancets in regular trash. Always use a sharps container and follow district and universal precautions policy.</div>
+      </div>
+
+      <div class="quiz-section" id="quiz3">
+        <h3>Module 4 Knowledge Check</h3>
+        <div class="quiz-sub">5 questions on monitoring and documentation.</div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 1 of 5</div>
+          <div class="q-text">A CGM (Continuous Glucose Monitor) measures blood glucose by:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(3,0,'a')">a) Fingerstick blood sample every 30 minutes</button></li>
+            <li><button class="option-btn" onclick="answer(3,0,'b')">b) A sensor under the skin that measures interstitial blood glucose continuously</button></li>
+            <li><button class="option-btn" onclick="answer(3,0,'c')">c) Urine testing every hour</button></li>
+            <li><button class="option-btn" onclick="answer(3,0,'d')">d) Blood pressure monitoring</button></li>
+          </ul>
+          <div class="q-feedback" id="fb3_0"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 2 of 5</div>
+          <div class="q-text">Ketones in the urine indicate:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(3,1,'a')">a) Low blood glucose</button></li>
+            <li><button class="option-btn" onclick="answer(3,1,'b')">b) The body is breaking down fats because cells can't access glucose — possible DKA</button></li>
+            <li><button class="option-btn" onclick="answer(3,1,'c')">c) Normal kidney function</button></li>
+            <li><button class="option-btn" onclick="answer(3,1,'d')">d) The student ate too much protein</button></li>
+          </ul>
+          <div class="q-feedback" id="fb3_1"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 3 of 5</div>
+          <div class="q-text">After a blood glucose check, what must be documented?</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(3,2,'a')">a) Only the blood glucose number</button></li>
+            <li><button class="option-btn" onclick="answer(3,2,'b')">b) Date, time, reading, student symptoms, and any actions taken</button></li>
+            <li><button class="option-btn" onclick="answer(3,2,'c')">c) Nothing — documentation is the nurse's job only</button></li>
+            <li><button class="option-btn" onclick="answer(3,2,'d')">d) Only if the result is out of range</button></li>
+          </ul>
+          <div class="q-feedback" id="fb3_2"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 4 of 5</div>
+          <div class="q-text">Used lancets and syringes must be disposed of in:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(3,3,'a')">a) A sealed plastic bag in the regular trash</button></li>
+            <li><button class="option-btn" onclick="answer(3,3,'b')">b) A hard plastic sharps container, following district policy</button></li>
+            <li><button class="option-btn" onclick="answer(3,3,'c')">c) Given back to the student to take home</button></li>
+            <li><button class="option-btn" onclick="answer(3,3,'d')">d) A biohazard bag in the dumpster</button></li>
+          </ul>
+          <div class="q-feedback" id="fb3_3"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 5 of 5</div>
+          <div class="q-text">If the CGM malfunctions, a UDCA should:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(3,4,'a')">a) Stop all glucose monitoring for the day</button></li>
+            <li><button class="option-btn" onclick="answer(3,4,'b')">b) Implement the backup plan specified in the student's IHP</button></li>
+            <li><button class="option-btn" onclick="answer(3,4,'c')">c) Send the student home</button></li>
+            <li><button class="option-btn" onclick="answer(3,4,'d')">d) Only check glucose if symptoms appear</button></li>
+          </ul>
+          <div class="q-feedback" id="fb3_4"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <div class="quiz-score">Score: <strong id="score3">—</strong></div>
+          <button class="btn-submit" id="submit3" onclick="submitQuiz(3)" disabled>Submit Answers</button>
+        </div>
+        <div class="pass-banner" id="pass3">
+          <strong>✓ Module 4 Complete!</strong>
+          Continue to Module 5.
+          <br><br><button class="btn-next-module" onclick="showModule(4)">Next Module →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 5: Insulin & Glucagon -->
+    <div class="module-panel" id="module4">
+      <div class="card">
+        <div class="card-header">
+          <div class="module-number">5</div>
+          <div class="card-header-text">
+            <h2>Insulin &amp; Glucagon Administration</h2>
+            <p>Safe administration, calculation, and emergency response</p>
+          </div>
+        </div>
+
+        <div class="section-title">Types of Insulin Delivery</div>
+        <table class="data-table">
+          <thead><tr><th>Device</th><th>Description</th><th>UDCA Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Insulin syringe</td><td>Draws from vial, injects subcutaneously</td><td>Use correct syringe; verify dose with IHP</td></tr>
+            <tr><td>Insulin pen</td><td>Pre-loaded cartridge with dial-dose</td><td>Attach new needle; dial dose per IHP</td></tr>
+            <tr><td>Insulin pump</td><td>Continuous delivery via infusion set</td><td>Know how to bolus; know emergency disconnect; follow written pump instructions</td></tr>
+          </tbody>
+        </table>
+
+        <div class="section-title">Insulin Calculation — The Three-Step Method</div>
+        <div class="info-box blue"><strong>Always Follow the IHP</strong>Insulin doses are NEVER calculated from memory. Every dose must come from the student's IHP and DMTP. The formulas below reflect how those plans are structured.</div>
+
+        <ul class="step-list">
+          <li><strong>Step 1 — Carb Coverage:</strong> Total grams of carbs eaten ÷ Insulin-to-Carb Ratio = Coverage units</li>
+          <li><strong>Step 2 — Correction Factor:</strong> (Current blood glucose − Target blood glucose) ÷ Correction Factor = Correction units</li>
+          <li><strong>Step 3 — Total Dose:</strong> Coverage units + Correction units = Total units to administer</li>
+        </ul>
+
+        <div class="calc-tool">
+          <h4>📐 Practice Insulin Calculator</h4>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:1rem;">Use this tool to practice calculating doses. Enter the values from a scenario or an actual IHP.</p>
+          <div class="calc-row">
+            <div class="calc-field"><label>Total carbs eaten (grams)</label><input type="number" id="calcCarbs" placeholder="e.g. 75"></div>
+            <div class="calc-field"><label>Insulin-to-Carb Ratio (grams per 1 unit)</label><input type="number" id="calcICR" placeholder="e.g. 20"></div>
+          </div>
+          <div class="calc-row">
+            <div class="calc-field"><label>Current blood glucose (mg/dL)</label><input type="number" id="calcBG" placeholder="e.g. 236"></div>
+            <div class="calc-field"><label>Target blood glucose (mg/dL)</label><input type="number" id="calcTarget" placeholder="e.g. 120"></div>
+            <div class="calc-field"><label>Correction factor (mg/dL per 1 unit)</label><input type="number" id="calcCF" placeholder="e.g. 75"></div>
+          </div>
+          <button class="btn-calc" onclick="calcInsulin()">Calculate Dose</button>
+          <div class="calc-result" id="calcResult">
+            <div class="result-grid">
+              <div><div class="r-label">Carb Coverage</div><div class="r-val" id="rCarb">—</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px">units</div></div>
+              <div><div class="r-label">Correction</div><div class="r-val" id="rCorr">—</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px">units</div></div>
+              <div><div class="r-label">Total Dose</div><div class="r-val" id="rTotal">—</div><div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px">units</div></div>
+            </div>
+            <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:0.75rem;">Always verify calculated doses against the student's IHP before administering. This tool is for training practice only.</p>
+          </div>
+        </div>
+
+        <div class="section-title">Glucagon Administration</div>
+        <div class="info-box red"><strong>Glucagon is an emergency medication</strong>Glucagon raises blood glucose rapidly. It is used ONLY when a student is unconscious or cannot swallow safely.</div>
+        <ul class="step-list">
+          <li>Verify student is unconscious or unable to swallow</li>
+          <li>Prepare glucagon using the manufacturer's instructions for the specific product (kit, auto-injector, or nasal spray)</li>
+          <li>Calculate the correct dose per the student's IHP</li>
+          <li>Place student on their side (recovery position)</li>
+          <li>Administer glucagon per the IHP instructions</li>
+          <li>Call 911 immediately after administering</li>
+          <li>Then call the parent/guardian</li>
+          <li>Record time, dose, and site</li>
+          <li>When consciousness is regained, give carbohydrates per the DMTP</li>
+        </ul>
+
+        <div class="section-title">Subcutaneous Injection Technique</div>
+        <ul class="check-list">
+          <li>Wash hands; wear latex-free gloves</li>
+          <li>Prepare the correct dose using aseptic technique</li>
+          <li>Clean the injection site with an antiseptic wipe and allow to dry</li>
+          <li>Pinch skin gently; insert needle at the prescribed angle</li>
+          <li>Inject insulin slowly; withdraw needle; apply gentle pressure</li>
+          <li>Dispose of needle in sharps container immediately</li>
+          <li>Record time, dose, and injection site</li>
+        </ul>
+      </div>
+
+      <div class="quiz-section" id="quiz4">
+        <h3>Module 5 Knowledge Check</h3>
+        <div class="quiz-sub">5 questions on insulin, glucagon, and administration.</div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 1 of 5</div>
+          <div class="q-text">If a student's blood glucose is in range BEFORE a meal, a UDCA should administer a bolus dose of insulin.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(4,0,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(4,0,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb4_0"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 2 of 5</div>
+          <div class="q-text">Insulin may be administered using:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(4,1,'a')">a) Insulin syringes only</button></li>
+            <li><button class="option-btn" onclick="answer(4,1,'b')">b) Insulin pens only</button></li>
+            <li><button class="option-btn" onclick="answer(4,1,'c')">c) Syringes, pens, or an insulin pump</button></li>
+            <li><button class="option-btn" onclick="answer(4,1,'d')">d) Any IV line</button></li>
+          </ul>
+          <div class="q-feedback" id="fb4_1"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 3 of 5</div>
+          <div class="q-text">After administering glucagon, always call ___ FIRST, then call the parent.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(4,2,'a')">a) The school principal</button></li>
+            <li><button class="option-btn" onclick="answer(4,2,'b')">b) 911 / EMS</button></li>
+            <li><button class="option-btn" onclick="answer(4,2,'c')">c) The student's physician</button></li>
+            <li><button class="option-btn" onclick="answer(4,2,'d')">d) The district nurse coordinator</button></li>
+          </ul>
+          <div class="q-feedback" id="fb4_2"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 4 of 5</div>
+          <div class="q-text">Insulin is injected via which route?</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(4,3,'a')">a) Intravenous (IV)</button></li>
+            <li><button class="option-btn" onclick="answer(4,3,'b')">b) Intramuscular (IM)</button></li>
+            <li><button class="option-btn" onclick="answer(4,3,'c')">c) Subcutaneous (SQ)</button></li>
+            <li><button class="option-btn" onclick="answer(4,3,'d')">d) Oral</button></li>
+          </ul>
+          <div class="q-feedback" id="fb4_3"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 5 of 5</div>
+          <div class="q-text">Using the TDC three-step method: A student ate 60g of carbs. The insulin-to-carb ratio is 1 unit per 20g. Blood glucose is 200, target is 120, correction factor is 80. What is the total dose?</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(4,4,'a')">a) 3 units</button></li>
+            <li><button class="option-btn" onclick="answer(4,4,'b')">b) 4 units</button></li>
+            <li><button class="option-btn" onclick="answer(4,4,'c')">c) 5 units</button></li>
+            <li><button class="option-btn" onclick="answer(4,4,'d')">d) 6 units</button></li>
+          </ul>
+          <div class="q-feedback" id="fb4_4"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <div class="quiz-score">Score: <strong id="score4">—</strong></div>
+          <button class="btn-submit" id="submit4" onclick="submitQuiz(4)" disabled>Submit Answers</button>
+        </div>
+        <div class="pass-banner" id="pass4">
+          <strong>✓ Module 5 Complete!</strong>
+          Continue to Module 6.
+          <br><br><button class="btn-next-module" onclick="showModule(5)">Next Module →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 6: Legal, Nutrition, Activities -->
+    <div class="module-panel" id="module5">
+      <div class="card">
+        <div class="card-header">
+          <div class="module-number">6</div>
+          <div class="card-header-text">
+            <h2>Legal Protections, Nutrition &amp; School Activities</h2>
+            <p>Student rights, meal planning, field trips, and schedule disruptions</p>
+          </div>
+        </div>
+
+        <div class="section-title">Federal and State Legal Protections</div>
+        <div class="law-item">
+          <div class="code-ref">Section 504 — Rehabilitation Act</div>
+          <p>Prohibits discrimination against students with disabilities, including diabetes, in programs receiving federal funding. Most school diabetes accommodations are formalized through a Section 504 plan.</p>
+        </div>
+        <div class="law-item">
+          <div class="code-ref">Americans with Disabilities Act (ADA)</div>
+          <p>Extends non-discrimination protections for people with disabilities to all public entities, including public schools.</p>
+        </div>
+        <div class="law-item">
+          <div class="code-ref">HSC Chapter 168 — Texas</div>
+          <p>State-specific requirements for UDCA training, IHP development, and student self-management rights. Students cannot be restricted from self-managing their diabetes anywhere on campus.</p>
+        </div>
+
+        <div class="section-title">Nutrition for Students with Diabetes</div>
+        <p class="body-text">Understanding nutrition is critical because food directly affects blood glucose. Key concepts for UDCAs:</p>
+        <ul class="check-list">
+          <li>Students with diabetes CAN eat foods containing sugar — carbohydrates must be counted and insulin adjusted accordingly</li>
+          <li>Regular meals are essential — skipping meals disrupts glucose control</li>
+          <li>Snacks are a clinical tool, not a treat — they are specifically ordered to prevent hypoglycemia</li>
+          <li>Physical activity may require additional snacks before or during exercise per the IHP</li>
+          <li>Illness, exam stress, growth spurts, and seasonal changes can all affect blood glucose unpredictably</li>
+        </ul>
+
+        <div class="section-title">Field Trips and Off-Campus Activities</div>
+        <div class="info-box blue"><strong>HSC §168.006 — Transportation Requirement</strong>School districts must provide an information sheet to every employee responsible for transporting or supervising a student with diabetes during an off-campus activity. This sheet must: identify the student, list potential emergencies and appropriate responses, and provide emergency contact phone numbers.</div>
+        <p class="body-text">For field trips and extracurricular events:</p>
+        <ul class="check-list">
+          <li>A trained UDCA (or school nurse) must accompany the student or be immediately reachable</li>
+          <li>The student must be permitted to carry all necessary diabetes supplies and equipment</li>
+          <li>The student's IHP applies at all school-sponsored events, on or off campus</li>
+          <li>Changes in schedule, timing of meals, and physical demands of the trip can affect blood glucose — monitor more closely</li>
+          <li>Emergency glucagon and glucose supplies must travel with the student</li>
+        </ul>
+
+        <div class="section-title">When Schedules Are Disrupted</div>
+        <p class="body-text">Illness, exams, celebrations, and special events disrupt the normal school day. Any schedule change that affects meal timing, physical activity, or stress level can impact blood glucose. UDCAs should:</p>
+        <ul class="step-list">
+          <li>Anticipate disruptions and review the IHP for specific guidance on schedule changes</li>
+          <li>Monitor blood glucose more frequently on disrupted days</li>
+          <li>Communicate with the student and parents about upcoming schedule changes</li>
+          <li>Never allow a meal or snack to be skipped without following IHP guidance</li>
+          <li>Contact the school nurse or parent if blood glucose is persistently out of range during disruptions</li>
+        </ul>
+
+        <div class="section-title">Annual Training Update Requirements</div>
+        <p class="body-text">Per TDC guidelines, UDCAs must complete annual training to assess knowledge and skills. Additionally, UDCAs must be informed in writing of any changes to a student's DMTP or IHP. At the beginning of each semester, UDCAs must review each student's current diabetes plan.</p>
+      </div>
+
+      <div class="quiz-section" id="quiz5">
+        <h3>Module 6 Knowledge Check</h3>
+        <div class="quiz-sub">5 questions on legal protections, nutrition, and activities.</div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 1 of 5</div>
+          <div class="q-text">Students with diabetes cannot participate in extracurricular activities such as sports or band.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(5,0,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(5,0,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb5_0"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 2 of 5</div>
+          <div class="q-text">For a field trip, the school must provide each supervising employee a sheet that includes:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(5,1,'a')">a) The student's full medical history</button></li>
+            <li><button class="option-btn" onclick="answer(5,1,'b')">b) Student identification, potential emergencies, appropriate responses, and emergency contact numbers</button></li>
+            <li><button class="option-btn" onclick="answer(5,1,'c')">c) Only the student's name and teacher</button></li>
+            <li><button class="option-btn" onclick="answer(5,1,'d')">d) A copy of the student's insurance card</button></li>
+          </ul>
+          <div class="q-feedback" id="fb5_1"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 3 of 5</div>
+          <div class="q-text">Snacks in a student's diabetes plan are:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(5,2,'a')">a) Optional rewards for good behavior</button></li>
+            <li><button class="option-btn" onclick="answer(5,2,'b')">b) Clinically ordered components of the diabetes management plan</button></li>
+            <li><button class="option-btn" onclick="answer(5,2,'c')">c) Only needed for students on insulin pumps</button></li>
+            <li><button class="option-btn" onclick="answer(5,2,'d')">d) Given only during physical education</button></li>
+          </ul>
+          <div class="q-feedback" id="fb5_2"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 4 of 5</div>
+          <div class="q-text">Section 504 of the Rehabilitation Act and the ADA prohibit discrimination against students with disabilities, including diabetes.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(5,3,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(5,3,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb5_3"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Question 5 of 5</div>
+          <div class="q-text">How often must UDCAs complete training to assess knowledge and skills?</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(5,4,'a')">a) Every 3 years</button></li>
+            <li><button class="option-btn" onclick="answer(5,4,'b')">b) Only when a new student enrolls</button></li>
+            <li><button class="option-btn" onclick="answer(5,4,'c')">c) Annually</button></li>
+            <li><button class="option-btn" onclick="answer(5,4,'d')">d) Once at initial hire</button></li>
+          </ul>
+          <div class="q-feedback" id="fb5_4"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <div class="quiz-score">Score: <strong id="score5">—</strong></div>
+          <button class="btn-submit" id="submit5" onclick="submitQuiz(5)" disabled>Submit Answers</button>
+        </div>
+        <div class="pass-banner" id="pass5">
+          <strong>✓ Module 6 Complete!</strong>
+          Ready for your Final Exam!
+          <br><br><button class="btn-next-module" onclick="showModule(6)">Begin Final Exam →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 7: FINAL EXAM -->
+    <div class="module-panel" id="module6">
+      <div class="card">
+        <div class="card-header">
+          <div class="module-number" style="background:var(--gold);">★</div>
+          <div class="card-header-text">
+            <h2>Final Certification Exam</h2>
+            <p>Comprehensive assessment — TDC-aligned, per HSC §168.005. Score 80% or higher to receive your completion certificate.</p>
+          </div>
+        </div>
+        <div class="info-box blue"><strong>Exam Instructions</strong>This 15-question exam covers all modules. Select one answer per question. You must score 80% (12/15) or higher to pass and receive your training certificate. You may review your modules before beginning.</div>
+      </div>
+
+      <div class="quiz-section" id="quiz6">
+        <h3>UDCA Final Certification Exam</h3>
+        <div class="quiz-sub">15 questions — all topics. Passing score: 80% (12/15 correct).</div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q1 of 15</div>
+          <div class="q-text">A school WITHOUT a full-time nurse is required to train at least ___ UDCA(s).</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,0,'a')">a) 1</button></li>
+            <li><button class="option-btn" onclick="answer(6,0,'b')">b) 2</button></li>
+            <li><button class="option-btn" onclick="answer(6,0,'c')">c) 3</button></li>
+            <li><button class="option-btn" onclick="answer(6,0,'d')">d) 5</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_0"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q2 of 15</div>
+          <div class="q-text">Texas Health and Safety Code requires parents to come to school to care for their child with diabetes.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,1,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(6,1,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_1"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q3 of 15</div>
+          <div class="q-text">Diabetes is managed by: (choose best answer)</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,2,'a')">a) Diet only</button></li>
+            <li><button class="option-btn" onclick="answer(6,2,'b')">b) Medication only</button></li>
+            <li><button class="option-btn" onclick="answer(6,2,'c')">c) Following a meal plan, taking prescribed medications, physical activity, and routine healthcare visits</button></li>
+            <li><button class="option-btn" onclick="answer(6,2,'d')">d) Avoiding all sugar</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_2"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q4 of 15</div>
+          <div class="q-text">Symptoms of mild to moderate hypoglycemia include all EXCEPT:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,3,'a')">a) Hunger and dizziness</button></li>
+            <li><button class="option-btn" onclick="answer(6,3,'b')">b) Trembling and sweating</button></li>
+            <li><button class="option-btn" onclick="answer(6,3,'c')">c) Excessive thirst and frequent urination</button></li>
+            <li><button class="option-btn" onclick="answer(6,3,'d')">d) Confusion and headache</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_3"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q5 of 15</div>
+          <div class="q-text">Severe hypoglycemia is suspected when a student:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,4,'a')">a) Complains of a headache</button></li>
+            <li><button class="option-btn" onclick="answer(6,4,'b')">b) Collapses or has a seizure</button></li>
+            <li><button class="option-btn" onclick="answer(6,4,'c')">c) Has blurred vision</button></li>
+            <li><button class="option-btn" onclick="answer(6,4,'d')">d) Asks for a snack</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_4"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q6 of 15</div>
+          <div class="q-text">After administering glucagon to an unconscious student, the FIRST call is to:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,5,'a')">a) The school principal</button></li>
+            <li><button class="option-btn" onclick="answer(6,5,'b')">b) The parent/guardian</button></li>
+            <li><button class="option-btn" onclick="answer(6,5,'c')">c) 911 / EMS</button></li>
+            <li><button class="option-btn" onclick="answer(6,5,'d')">d) The district superintendent</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_5"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q7 of 15</div>
+          <div class="q-text">Insulin may be administered using:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,6,'a')">a) Syringes, pens, or a pump</button></li>
+            <li><button class="option-btn" onclick="answer(6,6,'b')">b) Syringes only</button></li>
+            <li><button class="option-btn" onclick="answer(6,6,'c')">c) IV drip only</button></li>
+            <li><button class="option-btn" onclick="answer(6,6,'d')">d) Nasal spray</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_6"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q8 of 15</div>
+          <div class="q-text">A CGM measures blood glucose using:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,7,'a')">a) A urine sample</button></li>
+            <li><button class="option-btn" onclick="answer(6,7,'b')">b) An under-skin sensor measuring interstitial glucose continuously</button></li>
+            <li><button class="option-btn" onclick="answer(6,7,'c')">c) An hourly fingerstick</button></li>
+            <li><button class="option-btn" onclick="answer(6,7,'d')">d) Sweat analysis</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_7"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q9 of 15</div>
+          <div class="q-text">The IHP (Individual Health Plan) is developed by:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,8,'a')">a) The student's physician only</button></li>
+            <li><button class="option-btn" onclick="answer(6,8,'b')">b) The school nurse and/or principal, based on the DMMP</button></li>
+            <li><button class="option-btn" onclick="answer(6,8,'c')">c) The UDCA</button></li>
+            <li><button class="option-btn" onclick="answer(6,8,'d')">d) The school board</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_8"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q10 of 15</div>
+          <div class="q-text">Students with diabetes cannot participate in extracurricular activities.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,9,'a')">a) True</button></li>
+            <li><button class="option-btn" onclick="answer(6,9,'b')">b) False</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_9"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q11 of 15</div>
+          <div class="q-text">Physical activity affects blood glucose by:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,10,'a')">a) Always raising it</button></li>
+            <li><button class="option-btn" onclick="answer(6,10,'b')">b) Having no effect</button></li>
+            <li><button class="option-btn" onclick="answer(6,10,'c')">c) Lowering blood glucose levels and increasing insulin sensitivity</button></li>
+            <li><button class="option-btn" onclick="answer(6,10,'d')">d) Only affecting Type 2 diabetes</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_10"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q12 of 15</div>
+          <div class="q-text">Used sharps must be disposed of in:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,11,'a')">a) A zip-lock bag</button></li>
+            <li><button class="option-btn" onclick="answer(6,11,'b')">b) Regular classroom trash</button></li>
+            <li><button class="option-btn" onclick="answer(6,11,'c')">c) A hard plastic sharps container per district policy</button></li>
+            <li><button class="option-btn" onclick="answer(6,11,'d')">d) Given to the student to take home</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_11"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q13 of 15</div>
+          <div class="q-text">For a field trip, the information sheet provided to supervising staff must include:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,12,'a')">a) Student identification, possible emergencies, and emergency contact number</button></li>
+            <li><button class="option-btn" onclick="answer(6,12,'b')">b) The student's full DMMP</button></li>
+            <li><button class="option-btn" onclick="answer(6,12,'c')">c) Only the student's name</button></li>
+            <li><button class="option-btn" onclick="answer(6,12,'d')">d) A copy of the IHP and insurance card</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_12"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q14 of 15</div>
+          <div class="q-text">UDCA annual retraining is required:</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,13,'a')">a) Every three years</button></li>
+            <li><button class="option-btn" onclick="answer(6,13,'b')">b) Every year</button></li>
+            <li><button class="option-btn" onclick="answer(6,13,'c')">c) Only when a new student with diabetes enrolls</button></li>
+            <li><button class="option-btn" onclick="answer(6,13,'d')">d) Only at the nurse's discretion</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_13"></div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="q-num">Q15 of 15</div>
+          <div class="q-text">Texas HSC Chapter 168 requires that a student with diabetes go to the nurse's office to care for their condition.</div>
+          <ul class="options">
+            <li><button class="option-btn" onclick="answer(6,14,'a')">a) True — always required</button></li>
+            <li><button class="option-btn" onclick="answer(6,14,'b')">b) False — students may manage their care anywhere on campus unless IHP specifies otherwise</button></li>
+          </ul>
+          <div class="q-feedback" id="fb6_14"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <div class="quiz-score">Score: <strong id="score6">—</strong></div>
+          <button class="btn-submit" id="submit6" onclick="submitFinal()" disabled>Submit Final Exam</button>
+        </div>
+        <div class="pass-banner" id="pass6">
+          <strong>🎓 Congratulations! You passed the Final Exam!</strong>
+          <span id="finalScoreMsg"></span>
+          <br><br><button class="btn-next-module" onclick="showCert()">View Completion Certificate →</button>
+        </div>
+        <div class="pass-banner" id="fail6" style="background:rgba(163,45,45,0.3);border-color:#F09595;color:#F7C1C1;display:none;">
+          <strong id="failMsg"></strong>
+          Please review the modules and retake the exam.
+          <br><br><button class="btn-next-module" onclick="retakeExam()">Retake Exam</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATE -->
+    <div class="module-panel" id="moduleCert">
+      <div class="card">
+        <div class="cert-wrap">
+      <div class="cert-box">
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:1.5rem;">
+          <div>
+            <div style="font-size:15px;font-weight:600;color:var(--navy);">DeSoto Independent School District</div>
+            <div style="font-size:12px;color:var(--gold);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Office of Health Services</div>
+          </div>
+        </div>
+        <div style="height:1px;background:var(--gray-100);margin-bottom:1.5rem;"></div>
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Certificate of Completion</div>
+        <h2>UDCA Training</h2>
+        <div class="subtitle">Unlicensed Diabetes Care Assistant — Texas</div>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:0.5rem;">This certifies that</p>
+        <input type="text" id="certName" placeholder="Enter your full name" style="width:100%;max-width:320px;padding:10px;text-align:center;font-size:18px;border:none;border-bottom:2px solid var(--gold);outline:none;font-family:'DM Serif Display',serif;color:var(--navy);">
+        <p style="margin-top:1rem;font-size:14px;color:var(--text-muted);">has successfully completed the</p>
+        <p style="font-size:16px;font-weight:600;color:var(--navy);margin:0.25rem 0;">Unlicensed Diabetes Care Assistant (UDCA)<br>Training Course</p>
+        <p style="font-size:13px;color:var(--text-muted);">as required by Texas Health and Safety Code §168.005</p>
+        <div class="authority">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:1rem;flex-wrap:wrap;">
+            <div style="text-align:left;">
+              <div style="border-top:1.5px solid var(--navy);padding-top:6px;min-width:200px;">
+                <div style="font-size:13px;font-weight:600;color:var(--navy);">Dr. LaStassia Williams, PhD, RN, HS-BCP</div>
+                <div style="font-size:12px;color:var(--text-muted);">Director of Health Services</div>
+                <div style="font-size:12px;color:var(--text-muted);">DeSoto Independent School District</div>
+              </div>
+            </div>
+            <div style="text-align:left;">
+              <div style="border-top:1.5px solid var(--navy);padding-top:6px;min-width:160px;">
+                <div style="font-size:13px;color:var(--text-muted);">Date of Completion</div>
+                <div style="font-size:13px;font-weight:600;color:var(--navy);" id="certDate"></div>
+              </div>
+            </div>
+          </div>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:0.5rem;border-top:1px solid var(--gray-100);padding-top:0.75rem;">Texas Diabetes Council Guidelines — Updated January 2025 &nbsp;|&nbsp; HSC §168.005<br>This certificate documents completion of the knowledge component. Skills competency must be verified separately by a licensed healthcare professional. Training must be renewed annually per TDC guidelines.</p>
+        </div>
+        <button class="btn-print" onclick="window.print()">Print Certificate</button>
+      </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const ANSWERS = [
+  ['c','b','c','b','b'],
+  ['a','b','b','b','c'],
+  ['b','b','b','b','b','b'],
+  ['b','b','b','b','b'],
+  ['a','c','b','c','c'],
+  ['b','b','b','a','c'],
+  ['c','b','c','c','b','c','a','b','b','b','c','c','a','b','b']
+];
+
+const FEEDBACK = [
+  [
+    'Correct! Schools without a full-time nurse must train at least 3 UDCAs.',
+    'Correct! Per HSC §168.004(b), UDCAs are supervised by the school principal.',
+    'Correct! The IHP is developed by the school nurse and/or principal based on the DMMP.',
+    'Correct! False — Chapter 168 requires schools to have trained staff available; it does not require parents to come to school.',
+    'Correct! A student may only be required to go to the nurse\'s office if their IHP specifies it and parents agreed.'
+  ],
+  [
+    'Correct! Students with Type 1 diabetes must always take insulin — their pancreas does not produce it.',
+    'Correct! False — diabetes cannot be identified visually; it requires a blood test to diagnose.',
+    'Correct! The three main types are Type 1, Type 2, and gestational diabetes.',
+    'Correct! False — students with diabetes can eat sugar-containing foods; they count carbs and adjust insulin accordingly.',
+    'Correct! Blood glucose monitoring frequency is individualized and specified in the student\'s IHP/DMTP.'
+  ],
+  [
+    'Correct! These are the classic mild-to-moderate hypoglycemia symptoms (hunger, dizziness, sweating, trembling, confusion, headache).',
+    'Correct! Physical symptoms alone are not conclusive — only a blood glucose reading can confirm hypoglycemia.',
+    'Correct! An unconscious student cannot swallow safely. Administer glucagon and call 911 immediately.',
+    'Correct! Always call 911 FIRST after administering glucagon, then call the parent/guardian.',
+    'Correct! Hyperglycemia is treated with insulin per the IHP. Fast-acting glucose would worsen high blood sugar.',
+    'Correct! Hypoglycemia is the most common complication during physical activity. Always have glucose available.'
+  ],
+  [
+    'Correct! A CGM uses a sensor inserted under the skin that continuously measures interstitial blood glucose.',
+    'Correct! Ketones indicate the body is breaking down fat (because cells can\'t access glucose), which can signal DKA — a medical emergency.',
+    'Correct! Every glucose check requires documentation of date, time, reading, symptoms, and actions taken.',
+    'Correct! All sharps must be disposed of in a hard plastic sharps container following district policy.',
+    'Correct! If the CGM malfunctions, implement the backup plan specified in the student\'s IHP — usually fingerstick monitoring.'
+  ],
+  [
+    'Correct! If blood glucose is in range BEFORE a meal, a bolus dose for that meal is still given per the IHP orders.',
+    'Correct! Insulin can be delivered via syringe, pen, or pump depending on the student\'s prescribed method.',
+    'Correct! Call 911 FIRST after administering glucagon, then call the parent/guardian.',
+    'Correct! Insulin is always given subcutaneously (under the skin), not intravenously or intramuscularly.',
+    'Correct! Step 1: 60÷20=3 units. Step 2: (200−120)÷80=1 unit. Total: 3+1=4 units.'
+  ],
+  [
+    'Correct! False — students with diabetes cannot be restricted from any extracurricular activity. Federal and state law prohibit this.',
+    'Correct! Per HSC §168.006, the information sheet must identify the student, list potential emergencies and responses, and provide emergency contact numbers.',
+    'Correct! Snacks are ordered components of the diabetes care plan — not treats. They are used to prevent or treat hypoglycemia.',
+    'Correct! Both Section 504 and the ADA prohibit discrimination against students with disabilities including diabetes.',
+    'Correct! Per TDC guidelines, UDCAs must complete annual training to assess knowledge and skills.'
+  ],
+  [
+    'Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!','Correct!'
+  ]
+];
+
+const WRONG_FEEDBACK = [
+  [
+    'Incorrect. Schools WITHOUT a full-time nurse must train at least 3 UDCAs.',
+    'Incorrect. Per HSC §168.004(b), UDCAs are supervised by the school principal, not the nurse.',
+    'Incorrect. The IHP is developed by the school nurse and/or principal based on the DMMP — not by parents or physicians alone.',
+    'Incorrect. This is FALSE — Texas law does NOT require parents to come to school. Schools must have trained staff.',
+    'Incorrect. A student can only be required to go to the nurse\'s office if the IHP specifies it AND parents agreed.'
+  ],
+  [
+    'Incorrect. Students with Type 1 ALWAYS need insulin — this is TRUE.',
+    'Incorrect. This is FALSE — you cannot identify diabetes by looking at someone. Diagnosis requires a blood test.',
+    'Incorrect. The three types are Type 1, Type 2, and gestational diabetes.',
+    'Incorrect. This is FALSE — students with diabetes can eat sugar; they count carbs and adjust insulin.',
+    'Incorrect. Frequency is individualized in the student\'s IHP — there is no universal number.'
+  ],
+  [
+    'Incorrect. Thirst and frequent urination are hyperglycemia symptoms, not hypoglycemia.',
+    'Incorrect. Appearance and asking the student how they feel are not definitive. Only a blood glucose reading confirms.',
+    'Incorrect. Never give anything by mouth to an unconscious student. Administer glucagon and call 911.',
+    'Incorrect. Always call 911 FIRST after glucagon, then the parent.',
+    'Incorrect. Hyperglycemia requires insulin, not fast-acting glucose (which would raise blood sugar further).',
+    'Incorrect. Hypoglycemia (low blood sugar) is the most common complication during physical activity.'
+  ],
+  [
+    'Incorrect. A CGM uses an under-skin sensor, not hourly fingersticks.',
+    'Incorrect. Ketones indicate fat breakdown and possible DKA — not normal function.',
+    'Incorrect. Documentation is required every time a blood glucose check occurs.',
+    'Incorrect. Sharps must go in a hard plastic sharps container, never regular trash or plastic bags.',
+    'Incorrect. A CGM malfunction requires implementing the backup plan in the IHP, not stopping monitoring.'
+  ],
+  [
+    'Incorrect. This is TRUE — a pre-meal bolus is given even when blood glucose is in range (to cover the upcoming carbs).',
+    'Incorrect. Insulin can be given via syringe, pen, or pump.',
+    'Incorrect. The order is always: glucagon → call 911 → call parent.',
+    'Incorrect. Insulin is given subcutaneously (under the skin), never IV in a school setting.',
+    'Incorrect. Step 1: 60÷20=3 units. Step 2: (200−120)÷80=1 unit. Total=4 units.'
+  ],
+  [
+    'Incorrect. This is FALSE — federal and state law prohibit restricting students from extracurricular activities.',
+    'Incorrect. The information sheet must include student ID, emergencies, responses, AND emergency contact numbers.',
+    'Incorrect. Snacks are clinically ordered parts of the diabetes care plan.',
+    'Incorrect. This is TRUE — both Section 504 and the ADA protect students with diabetes from discrimination.',
+    'Incorrect. Annual training is required per TDC guidelines.'
+  ],
+  Array(15).fill('Review the relevant module and try again.')
+];
+
+const moduleAnswers = Array(7).fill(null).map(() => ({}));
+const moduleSubmitted = Array(7).fill(false);
+const modulesPassed = Array(7).fill(false);
+let completedModules = 0;
+
+function startCourse() {
+  document.getElementById('heroSection').style.display = 'none';
+  document.getElementById('courseLayout').style.display = 'grid';
+}
+
+function showModule(idx) {
+  document.querySelectorAll('.module-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.module-btn').forEach(b => b.classList.remove('active'));
+  if(idx === 'cert') {
+    document.getElementById('moduleCert').classList.add('active');
+    return;
+  }
+  document.getElementById('module'+idx).classList.add('active');
+  document.getElementById('nav'+idx).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function answer(moduleIdx, qIdx, choice) {
+  if(moduleSubmitted[moduleIdx]) return;
+  moduleAnswers[moduleIdx][qIdx] = choice;
+  const qId = 'q'+(moduleIdx === 6 ? 6 : moduleIdx)+'_'+qIdx;
+  const qEl = document.getElementById(qId) || document.querySelectorAll('#quiz'+moduleIdx+' .quiz-q')[qIdx];
+  if(!qEl) return;
+  qEl.querySelectorAll('.option-btn').forEach(b => b.style.opacity = '0.6');
+  event.target.style.opacity = '1';
+  event.target.style.fontWeight = '600';
+  const total = ANSWERS[moduleIdx].length;
+  const answered = Object.keys(moduleAnswers[moduleIdx]).length;
+  const submitBtn = document.getElementById('submit'+moduleIdx);
+  if(answered >= total) submitBtn.disabled = false;
+}
+
+function submitQuiz(moduleIdx) {
+  moduleSubmitted[moduleIdx] = true;
+  const correct = ANSWERS[moduleIdx];
+  let score = 0;
+  const qEls = document.querySelectorAll('#quiz'+moduleIdx+' .quiz-q');
+  qEls.forEach((qEl, i) => {
+    const chosen = moduleAnswers[moduleIdx][i];
+    const buttons = qEl.querySelectorAll('.option-btn');
+    buttons.forEach(btn => btn.disabled = true);
+    if(chosen) {
+      const chosenBtn = [...buttons].find(b => b.getAttribute('onclick').includes("'"+chosen+"'"));
+      if(chosenBtn) {
+        if(chosen === correct[i]) {
+          chosenBtn.classList.add('correct');
+          score++;
+        } else {
+          chosenBtn.classList.add('wrong');
+          const correctBtn = [...buttons].find(b => b.getAttribute('onclick').includes("'"+correct[i]+"'"));
+          if(correctBtn) correctBtn.classList.add('correct');
+        }
+      }
+    }
+    const fbId = 'fb'+moduleIdx+'_'+i;
+    const fb = document.getElementById(fbId);
+    if(fb) {
+      if(chosen === correct[i]) {
+        fb.textContent = FEEDBACK[moduleIdx][i];
+        fb.className = 'q-feedback show right';
+      } else {
+        fb.textContent = WRONG_FEEDBACK[moduleIdx][i];
+        fb.className = 'q-feedback show wrong-fb';
+      }
+    }
+  });
+  const pct = Math.round(score / correct.length * 100);
+  document.getElementById('score'+moduleIdx).textContent = score+'/'+correct.length+' ('+pct+'%)';
+  document.getElementById('submit'+moduleIdx).disabled = true;
+  if(pct >= 80) {
+    document.getElementById('pass'+moduleIdx).classList.add('show');
+    modulesPassed[moduleIdx] = true;
+    if(moduleIdx < 6) document.getElementById('nav'+moduleIdx).classList.add('completed');
+    updateProgress();
+  } else {
+    if(moduleIdx < 6) {
+      const passBanner = document.getElementById('pass'+moduleIdx);
+      passBanner.style.background='rgba(163,45,45,0.3)';
+      passBanner.style.borderColor='#F09595';
+      passBanner.style.color='#F7C1C1';
+      passBanner.innerHTML = '<strong>Score: '+pct+'% — You need 80% to pass.</strong> Review the material and retake this quiz.<br><br><button class="btn-next-module" onclick="retakeModuleQuiz('+moduleIdx+')">Retake Quiz</button>';
+      passBanner.classList.add('show');
+    }
+  }
+}
+
+function submitFinal() {
+  submitQuiz(6);
+  const correct = ANSWERS[6];
+  let score = 0;
+  Object.keys(moduleAnswers[6]).forEach(i => {
+    if(moduleAnswers[6][i] === correct[i]) score++;
+  });
+  const pct = Math.round(score/correct.length*100);
+  if(pct < 80) {
+    document.getElementById('pass6').style.display = 'none';
+    const failEl = document.getElementById('fail6');
+    failEl.style.display = 'block';
+    document.getElementById('failMsg').textContent = 'Score: '+score+'/15 ('+pct+'%) — Passing is 80% (12/15). ';
+  } else {
+    document.getElementById('finalScoreMsg').textContent = ' You scored '+score+'/15 ('+pct+'%).';
+  }
+}
+
+function retakeModuleQuiz(idx) {
+  moduleAnswers[idx] = {};
+  moduleSubmitted[idx] = false;
+  const quiz = document.getElementById('quiz'+idx);
+  quiz.querySelectorAll('.option-btn').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct','wrong');
+    b.style.opacity='1';
+    b.style.fontWeight='400';
+  });
+  quiz.querySelectorAll('.q-feedback').forEach(f => f.className='q-feedback');
+  document.getElementById('score'+idx).textContent='—';
+  document.getElementById('submit'+idx).disabled=true;
+  const pb = document.getElementById('pass'+idx);
+  pb.classList.remove('show');
+  pb.style.background='';
+  pb.style.borderColor='';
+  pb.style.color='';
+}
+
+function retakeExam() {
+  retakeModuleQuiz(6);
+  document.getElementById('fail6').style.display='none';
+  document.getElementById('pass6').classList.remove('show');
+}
+
+function showCert() {
+  showModule('cert');
+  document.getElementById('certDate').textContent = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+}
+
+function updateProgress() {
+  const passed = modulesPassed.filter(Boolean).length;
+  const pct = Math.round(passed/7*100);
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('progressText').textContent = pct+'%';
+}
+
+function calcInsulin() {
+  const carbs = parseFloat(document.getElementById('calcCarbs').value)||0;
+  const icr = parseFloat(document.getElementById('calcICR').value)||1;
+  const bg = parseFloat(document.getElementById('calcBG').value)||0;
+  const target = parseFloat(document.getElementById('calcTarget').value)||120;
+  const cf = parseFloat(document.getElementById('calcCF').value)||1;
+  const carbUnits = carbs/icr;
+  const corrUnits = Math.max(0,(bg-target)/cf);
+  const total = carbUnits+corrUnits;
+  document.getElementById('rCarb').textContent = carbUnits.toFixed(1);
+  document.getElementById('rCorr').textContent = corrUnits.toFixed(1);
+  document.getElementById('rTotal').textContent = total.toFixed(1);
+  document.getElementById('calcResult').classList.add('show');
+}
+</script>
+</body>
+</html>
